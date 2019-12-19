@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+	<!-- Bootstrap CSS -->
+	<!-- <link rel="stylesheet" href="css/bootstrap.min.css"> -->
+	
+	<!-- Animate CSS -->
+	<link rel="stylesheet" href="css/animate.css">
+	
+	<!-- Owl Carousel -->
+	<link rel="stylesheet" href="css/owl.carousel.min.css">
+	
+	<!-- Fontawesome Kit -->
+	<script src="js/fontawesome.js"></script>
+
+	<!-- Style -->
+	<link rel="stylesheet" href="css/style.css">
+
+	<title>Icons</title>
+</head>
+<body>
+	
+	<div class="container">
+		<div class="bm" data-file="clipboard"></div>
+		<div class="bm" data-file="wait"></div>
+		<div class="bm" data-file="cloud"></div>
+	</div>
+
+	<!-- Script tags -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.5.9/lottie.min.js"></script>
+
+	<script>
+	
+		var bm = document.getElementsByClassName('bm');
+
+		Array.prototype.forEach.call(bm, icon => {
+			var anim = bodymovin.loadAnimation({
+				container: icon,
+				path: `icons/${icon.dataset.file}.json`,
+				renderer: 'canvas',
+				loop: false,
+				autoplay: false
+			});
+			icon.addEventListener('mouseenter', () =>{
+				anim.setDirection(1)
+				anim.play();
+			});
+			icon.addEventListener('mouseleave', () =>{
+				anim.setDirection(-1)
+				anim.play();
+			});
+		});
+
+	</script>
+
+</body>
+</html>
